@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title= @title || "Welcome to Sinatra app template"
+    %link{:href => '/main.css', :rel => 'stylesheet', :type => 'text/css'}
+  %body
+    #container
+      #header
+        #logo
+          %h1
+            %a{:href => '/'}
+              Welcome to Sinatra app template
+      #content= yield
+      #footer
+        %p#legal= "&mdash; &copy; #{Time.now.strftime('%Y')} &mdash;"
