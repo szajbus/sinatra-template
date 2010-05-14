@@ -1,2 +1,9 @@
 log/*.log
 tmp/[!.]*
+
+.bundle/environment.rb
+vendor/bundle/specifications
+vendor/bundle/docs
+vendor/bundle/bin
+vendor/bundle/cache
+vendor/bundle/gems
