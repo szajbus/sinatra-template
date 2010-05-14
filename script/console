@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+libs = []
+libs << "irb/completion"
+libs << File.join(File.dirname(__FILE__), '..', 'environment')
+
+command_line = []
+command_line << "irb"
+command_line << libs.inject("") { |acc, lib| acc + %( -r "#{lib}") }
+command_line << "--simple-prompt"
+command = command_line.join(" ")
+
+ENV['RACK_ENV'] = case ARGV.first
+  when "p"; "production"
+  when "d"; "development"
+  when "t"; "test"
+  else
+    ARGV.first || ENV['RACK_ENV'] || 'development'
+end
+
+puts "Welcome to Sinatra's backstage in #{ENV['RACK_ENV']} environment."
+exec command
